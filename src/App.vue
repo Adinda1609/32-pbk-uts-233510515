@@ -100,7 +100,7 @@ onMounted(() => {
       </form>
     </section>
 
-    
+
     <!--Menampilkan Kegiatan -->
     <section class="todo-list">
       <h3>List kegiatan kamu ada disini🌷🌷</h3>
@@ -148,6 +148,36 @@ onMounted(() => {
           </div>
         </div>
       </div>
-    </section>  
+    </section> 
+    
+    <!-- Notifikasi -->
+    <div v-if="notification" class="notification">
+      {{ notification }}
+    </div>
   </main>
 </template>
+
+<style scoped>
+@import './style.css';
+
+/* Notifikasi */
+.notification {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: #f095ca;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+/* Tombol Hapus */
+.actions button i {
+  font-size: 1rem;
+  pointer-events: none;
+}
+</style>
