@@ -126,6 +126,27 @@ onMounted(() => {
             </div>
           </div>
         </div>
+
+        <!-- Kegiatan yang belum dilakukan -->
+        <div class="todo-column">
+          <h4>Kegiatan yang belum dilakukan</h4>
+          <div class="list">
+            <div v-for="todo in todos_asc.filter(t => !t.done)" :key="todo.createdAt" :class="`todo-item ${todo.done && 'done'}`">
+              <label>
+                <input type="checkbox" v-model="todo.done" />
+                <span :class="`bubble ${ todo.category == 'bisnis' ? 'bisnis' : 'personal'}`"></span>
+              </label>
+              <div class="todo-content">
+                <input type="text" v-model="todo.content" />
+              </div>
+              <div class="actions">
+                <button class="delete" @click="removeTodo(todo)">
+                  <font-awesome-icon :icon="['fas', 'trash']" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>  
   </main>
